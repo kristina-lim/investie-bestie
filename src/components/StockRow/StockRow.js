@@ -29,18 +29,6 @@ class StockRow extends Component {
     }
   }
 
-  // once component gets loaded, this will get triggered
-  // componentDidMount() {
-  //   // Change state
-  //   this.setState({
-  //     data: {
-  //       price: 5,
-  //       date: "asfg",
-  //       time: "asdsd"
-  //     }
-  //   })
-  // }
-
   componentDidMount() {
     // Fetch beta data
     // URL FOR NOW, CHANGE LATER CANT SIGN OUT BECAUSE OF URL
