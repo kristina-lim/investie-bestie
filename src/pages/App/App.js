@@ -1,76 +1,87 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import StockRow from '../../components/StockRow/StockRow.js';
-import LoginForm from '../LoginForm/LoginForm.js';
-import Header from '../../components/Header/Header.js';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import StockSelector from "../../components/StockSelector/StockSelector.js";
+import StockDetails from "../StockDetails/StockDetails.js";
+import LoginForm from "../LoginForm/LoginForm";
+import { getAuth, signOut } from "firebase/auth"; // Import Firebase Auth
 
 function App() {
-  // User is the currently logged in user
-  const [user, setUser] = useState(null);
-  // Title is just a sample value entered in form
-  const [title, setTitle] = useState('');
-  const navigate = useNavigate();
+  const [selectedStock, setSelectedStock] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+  const [userName, setUserName] = useState(""); // Store user's name
 
-  // When the user submits form...don't really do anything in this sample
-  async function handleSubmit(event) {
-    event.tpreventDefault();
-
-    // Do whatever on submit
-    console.log("submitted");
+  const handleLogout = () => {
+    const auth = getAuth(); // Initialize Firebase Auth
+    signOut(auth)
+      .then(() => {
+        console.log("User signed out");
+        setIsLoggedIn(false); // Reset login state
+        setSelectedStock(""); // Clear any selected stock
+        setUserName(""); // Clear user name
+      })
+      .catch((error) => {
+        console.error("Error during logout:", error);
+      });
   };
 
-  // This will be called by the LoginForm
-  function handleLogin(user) {
-    setUser(user);
-    navigate('/stocks');
-  }
-
-  function handleLogout() {
-    console.log("Logging out...");
-    setUser(null);
-    navigate('/login');
-  }
-
-  // We have a subcomponent LoginForm and we pass it the function to call when login happens
   return (
-    <>
+    <Router>
       <Routes>
-        <Route path="/login" element={<LoginForm LoginEvent={handleLogin} />} />
+        {/* Default route redirects to login if not logged in */}
         <Route
-          path="/stocks"
+          path="/"
           element={
-            user ? (
-              <>
-                <Header userName={user.displayName} onLogout={handleLogout} />
-                <div className="container">
-                  <div className="col-md-5 mt-5">
-                    <div className="card">
-                      <ul className="list-group list-group-flush">
-                        <StockRow ticker="aapl" />
-                        <StockRow ticker="aabv" />
-                        <StockRow ticker="adbe" />
-                        <StockRow ticker='aig' />
-                        <StockRow ticker='amd' />
-                        <StockRow ticker='amzn' />
-                        <StockRow ticker='axp' />
-                        <StockRow ticker='ba' />
-                        <StockRow ticker='bac' />
-                        <StockRow ticker='cat' />
-                        <StockRow ticker='tsla' />
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </>
+            isLoggedIn ? (
+              <Navigate to="/stocks" />
             ) : (
-              <Navigate to="/login" replace /> // Redirect if not logged in
+              <LoginForm LoginEvent={(user) => {
+                setIsLoggedIn(true)
+                setUserName(user.displayName); // Set user name
+              }} 
+              />
             )
           }
         />
-        <Route path="*" element={<Navigate to="/login" replace />} />
+
+        {/* Stocks page */}
+        <Route
+          path="/stocks"
+          element={
+            isLoggedIn ? (
+              <div>
+                <header
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: "1rem",
+                  }}
+                >
+                  <h1>Welcome, {userName}!</h1>
+                  <button
+                    onClick={handleLogout}
+                    style={{
+                      padding: "0.5rem 1rem",
+                      backgroundColor: "#007BFF",
+                      color: "white",
+                      border: "none",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Logout
+                  </button>
+                </header>
+                <StockSelector onStockSelect={setSelectedStock} />
+                {selectedStock && <StockDetails stock={selectedStock} />}
+              </div>
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
       </Routes>
-    </>
+    </Router>
   );
 }
 
