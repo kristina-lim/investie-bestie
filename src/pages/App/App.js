@@ -34,10 +34,11 @@ function App() {
             isLoggedIn ? (
               <Navigate to="/stocks" />
             ) : (
-              <LoginForm LoginEvent={(user) => {
-                setIsLoggedIn(true)
-                setUserName(user.displayName); // Set user name
-              }} 
+              <LoginForm
+                LoginEvent={(user) => {
+                  setIsLoggedIn(true);
+                  setUserName(user.displayName); // Set user name
+                }}
               />
             )
           }
@@ -54,20 +55,46 @@ function App() {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    padding: "1rem",
+                    padding: "1rem 2rem",
+                    backgroundColor: "#f0f8ff",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    borderRadius: "0 0 20px 20px",
+                    position: "relative",
+                    minHeight: "70px",
                   }}
                 >
-                  <h1>Welcome, {userName}!</h1>
+                  <h1
+                    style={{
+                      margin: 0,
+                      fontSize: "1.5rem",
+                      color: "#333",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                    }}
+                  >
+                    Welcome, {userName}!
+                  </h1>
                   <button
                     onClick={handleLogout}
                     style={{
+                      marginRight: "5rem",
                       padding: "0.5rem 1rem",
                       backgroundColor: "#007BFF",
                       color: "white",
                       border: "none",
                       borderRadius: "5px",
                       cursor: "pointer",
+                      transition: "background-color 0.3s ease",
+                      marginLeft: "1rem", // Move the button closer to the header content
+                      position: "static", // Ensure the button stays inline
                     }}
+                    onMouseEnter={(e) =>
+                      (e.target.style.backgroundColor = "#0056b3") // Hover effect
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.backgroundColor = "#007BFF") // Revert hover effect
+                    }
                   >
                     Logout
                   </button>
