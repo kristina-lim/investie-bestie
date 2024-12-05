@@ -5,7 +5,6 @@ import "./StockDetails.css";
 function StockDetails({ stock }) {
   const [beta, setBeta] = useState(null);
   const [summary, setSummary] = useState("");
-  const [chartUrl, setChartUrl] = useState("");
 
   useEffect(() => {
     if (!stock) return;
@@ -29,9 +28,6 @@ function StockDetails({ stock }) {
       .catch((error) => {
         console.error("Error fetching summary:", error);
       });
-
-    // Set Chart URL
-    setChartUrl(`https://investiebestie.wl.r.appspot.com/api/stocks/${stock}/chart`);
   }, [stock]);
 
   return (
@@ -59,13 +55,6 @@ function StockDetails({ stock }) {
               )
             )}
           </div>
-        </div>
-      )}
-
-      {chartUrl && (
-        <div className="analysis-section">
-          <h3>Stock Chart</h3>
-          <img src={chartUrl} alt={`Chart for ${stock}`} className="stock-chart" />
         </div>
       )}
     </div>
