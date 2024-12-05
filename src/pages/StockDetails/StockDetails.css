@@ -1,0 +1,67 @@
+.stock-details {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  background: linear-gradient(to bottom, #ffffff, #f0f8ff);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  max-width: 850px;
+  margin: 25px auto;
+}
+
+.analysis-section {
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(240, 248, 255, 0.5);
+}
+
+.analysis-section h3 {
+  font-size: 1.8rem;
+  color: #005f99;
+  border-bottom: 2px solid #007acc;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.beta-rating {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #444;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.ai-summary {
+  background: #ffffff;
+  border-left: 6px solid #007acc;
+  padding: 15px 20px;
+  border-radius: 8px;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #555;
+}
+
+.ai-summary p {
+  margin: 10px 0;
+}
+
+.ai-bullet-point {
+  margin: 8px 0;
+  list-style-type: circle;
+  padding-left: 25px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.stock-chart {
+  display: block;
+  max-width: 100%;
+  border: 2px solid #007acc;
+  border-radius: 10px;
+  margin-top: 15px;
+  transition: transform 0.3s ease;
+}
+
+.stock-chart:hover {
+  transform: scale(1.03);
+}
