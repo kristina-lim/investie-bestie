@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+InvestieBestie
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Overview of the Project
 
-## Available Scripts
+InvestieBestie is an innovative tool designed to make stock market insights accessible to individuals with no prior experience or education in investing. The application solves the problem of understanding stock volatility by calculating the Beta rating of selected stocks and providing a concise, user-friendly analysis. Using the power of generative AI, InvestieBestie generates five bullet points summarizing the significance of the Beta rating, empowering users to make informed financial decisions.
 
-In the project directory, you can run:
+Target Audience
 
-### `npm start`
+The primary audience for InvestieBestie includes:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+	•	Beginner investors.
+	•	Individuals looking to understand stock performance without diving into technical jargon.
+	•	People interested in exploring the stock market but unsure where to start.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Future Plans
 
-### `npm test`
+After the class, the project has the potential to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+	•	Expand to include visualizations of stock trends, such as moving averages and historical data charts.
+	•	Integrate personalized recommendations based on user preferences and portfolio goals.
+	•	Provide additional financial metrics such as P/E ratios, dividend yields, or moving average crossovers.
+	•	Explore mobile app development for better accessibility.
 
-### `npm run build`
+Database Description
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+InvestieBestie uses a simple database structure to store stock-related data. The database includes a single table with the following fields:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+	•	stockId: A unique identifier for each stock entry (primary key).
+	•	tickerSymbol: The ticker symbol of the stock (e.g., AAPL for Apple, TSLA for Tesla).
+	•	betaValue: The calculated Beta rating for the stock.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This streamlined approach ensures efficient storage and retrieval of data for analysis.
 
-### `npm run eject`
+AI Description
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+InvestieBestie incorporates Generative AI to transform raw financial data into accessible insights. The AI is used in the following way:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+	•	Beta Rating Analysis: After calculating the Beta rating for a stock, the application sends this information to OpenAI’s API.
+	•	Natural Language Output: The AI generates five bullet points explaining the significance of the Beta rating, tailored for beginners. The output includes insights into the stock’s volatility, risk level, and market performance context.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This integration of AI ensures that complex financial metrics are converted into actionable knowledge, making investing less intimidating for newcomers.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Running the Program:
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Use your preferred IDE to open the repo (preferably VS Code. The back end of this project is located in investie-bestie/investie-bestie/javabackend.
+2. Go to OpenAI console and generate your own API key as the current key was deactivated.
+3. Go to the app.yaml file located in src/main/appengine/app.yaml and paste the api key in there.
+4. Open your terminal and navigate to investie-bestie/investie-bestie. Run gcloud app deploy.
+5. After it deploys navigate to the front end and run npm start in the terminal. Make sure to install any necessary libraries that notifies you about.
+6. Log in and enjoy!
