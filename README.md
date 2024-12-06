@@ -42,7 +42,7 @@ This integration of AI ensures that complex financial metrics are converted into
 
 Running the Program:
 
-1. Use your preferred IDE to open the repo (preferably VS Code. The back end of this project is located in investie-bestie/investie-bestie/javabackend.
+1. Use your preferred IDE to open the repo (preferably VS Code. The back end of this project is located in investie-bestie/investie-bestie.
 2. Go to OpenAI console and generate your own API key as the current key was deactivated.
 3. Go to the app.yaml file located in src/main/appengine/app.yaml and paste the api key in there.
 4. Open your terminal and navigate to investie-bestie/investie-bestie. Run gcloud app deploy.
