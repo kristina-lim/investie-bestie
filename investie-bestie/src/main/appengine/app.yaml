@@ -1,0 +1,8 @@
+runtime: java17
+instance_class: F2
+handlers:
+  - url: /.*
+    script: auto
+
+env_variables:
+  OPENAI_API_KEY: "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"
