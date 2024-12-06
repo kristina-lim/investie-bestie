@@ -51,6 +51,7 @@ Running the Program:
 
 ## Video Demonstrations
 
-- [InvestieBestie Demo](https://www.youtube.com/watch?v=y02zpA4M6wo)  
+- [InvestieBestie Demo](https://www.youtube.com/watch?v=jzqoRQnFS7I)
+  
+- [User Testing InvestieBestie](https://www.youtube.com/watch?v=y02zpA4M6wo)
 
-- [User Testing InvestieBestie](https://www.youtube.com/watch?v=jzqoRQnFS7I)
