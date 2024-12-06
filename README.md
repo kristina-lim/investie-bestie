@@ -48,3 +48,9 @@ Running the Program:
 4. Open your terminal and navigate to investie-bestie/investie-bestie. Run gcloud app deploy.
 5. After it deploys navigate to the front end and run npm start in the terminal. Make sure to install any necessary libraries that notifies you about.
 6. Log in and enjoy!
+
+## Video Demonstrations
+
+- [InvestieBestie Demo](https://www.youtube.com/watch?v=y02zpA4M6wo)  
+
+- [User Testing InvestieBestie](https://www.youtube.com/watch?v=jzqoRQnFS7I)
